@@ -6,7 +6,7 @@ use Lexik\Bundle\PayboxBundle\Paybox\System\Base\Response;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Psr\Log\LoggerInterface;
-use Symfony\Component\HttpFoundation\ParameterBag;
+use Symfony\Component\HttpFoundation\InputBag;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
@@ -39,7 +39,7 @@ class ResponseTest extends TestCase
             ->will($this->returnValue(true))
         ;
 
-        $request->request = new ParameterBag($parameters);
+        $request->request = new InputBag($parameters);
 
         $requestStack = $this->createMock(RequestStack::class);
         $requestStack

@@ -6,7 +6,7 @@ use Lexik\Bundle\PayboxBundle\Event\PayboxEvents;
 use Lexik\Bundle\PayboxBundle\Event\PayboxResponseEvent;
 use Lexik\Bundle\PayboxBundle\Paybox\System\Tools;
 use Psr\Log\LoggerInterface;
-use Symfony\Component\HttpFoundation\ParameterBag;
+use Symfony\Component\HttpFoundation\InputBag;
 use Symfony\Component\HttpFoundation\Request as HttpRequest;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
@@ -69,10 +69,8 @@ class Response
 
     /**
      * Returns the GET or POST parameters form the request.
-     *
-     * @return ParameterBag
      */
-    protected function getRequestParameters()
+    protected function getRequestParameters(): InputBag
     {
         if ($this->request->isMethod('POST')) {
             $parameters = $this->request->request;

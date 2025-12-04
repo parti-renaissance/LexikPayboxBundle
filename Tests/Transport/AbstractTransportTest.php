@@ -51,7 +51,7 @@ class AbstractTransportTest extends TestCase
 
     public function testCheckEndpoint()
     {
-        $this->expectException(\RunTimeException::class);
+        $this->expectException(\RuntimeException::class);
         $method = new \ReflectionMethod(AbstractTransport::class, 'checkEndpoint');
         $method->setAccessible(TRUE);
         $method->invoke($this->object);
